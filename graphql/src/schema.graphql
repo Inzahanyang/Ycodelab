@@ -1,0 +1,64 @@
+type Query {
+  articles(where: ArticlesWhereInput): [Article!]!
+}
+
+input ArticlesWhereInput {
+  categoryId: ID
+}
+
+type Article {
+  id: ID!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String
+  title: String!
+  category: Category
+  viewNum: Int!
+  content: String!
+  author: User!
+  comments: [Comment!]!
+  likes: [Like!]!
+  thumbnail: Image
+}
+
+type Category {
+  id: ID!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String
+  name: String!
+  articles: [Article!]!
+}
+
+type Comment {
+  id: ID!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String
+  author: User!
+  content: String!
+}
+
+type User {
+  id: ID!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String
+  nickname: String!
+  image: Image
+}
+
+type Like {
+  id: ID!
+  createdAt: String!
+  author: User!
+  articles: Article!
+}
+
+type Image {
+  id: ID!
+  createdAt: String!
+  updatedAt: String!
+  deletedAt: String
+  url: String!
+}
