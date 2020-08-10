@@ -1,4 +1,5 @@
 import Head from "next/head";
+import produce from "immer";
 import _ from "lodash";
 import { useState, useCallback, useEffect } from "react";
 
@@ -39,6 +40,19 @@ export default function Home() {
     },
     [list]
   );
+
+  const done = useCallback(
+    id => {
+      const newList = produce(list, draft => {
+        const target = list.find(item => item.id === id);
+        const index = list.indexOf(target);
+        draft[index].isDone = !target.isDone;
+      });
+      setList(newList);
+    },
+    [list]
+  );
+
   return (
     <div className="py-8 px-16">
       <Head>
@@ -61,7 +75,7 @@ export default function Home() {
       <ul className="list-disc">
         {list.map(item => (
           <li>
-            <input type="checkbox" className="mr-2" />
+            <input type="checkbox" className="mr-2" checked={!!item.isDone} onChange={() => done(item.id)} />
             {item.text}
             <button className="ml-2 text-xs text-red-500" onClick={() => removeItem(item.id)}>
               [삭제]
