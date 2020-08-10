@@ -63,7 +63,7 @@ export default function Home() {
       <h1 className="text-4xl font-bold">TO_DO List</h1>
 
       <div>
-        <input type="text" className="border p-1" value={text} onChange={e => setText(e.target.value)} />
+        <input type="text" className="border p-1 mr-2" value={text} onChange={e => setText(e.target.value)} />
         <button
           onClick={addItem}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
@@ -76,7 +76,7 @@ export default function Home() {
         {list.map(item => (
           <li>
             <input type="checkbox" className="mr-2" checked={!!item.isDone} onChange={() => done(item.id)} />
-            {item.text}
+            <span className={item.isDone ? "line-through text-gray-500" : ""}>{item.text}</span>
             <button className="ml-2 text-xs text-red-500" onClick={() => removeItem(item.id)}>
               [삭제]
             </button>
