@@ -56,11 +56,11 @@ export default function Home() {
   return (
     <div className="py-8 px-16">
       <Head>
-        <title>Create Next App</title>
+        <title>내사랑 이진희</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="text-4xl font-bold">TO_DO List</h1>
+      <h1 className="text-4xl font-bold">지니의 할일은? 😝</h1>
 
       <div>
         <input type="text" className="border p-1 mr-2" value={text} onChange={e => setText(e.target.value)} />

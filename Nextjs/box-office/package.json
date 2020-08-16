@@ -1,17 +1,20 @@
 {
-  "name": "todo-list",
+  "name": "box-office",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "export": "next export"
+    "start": "next start"
   },
   "dependencies": {
+    "antd": "^4.5.4",
+    "axios": "^0.19.2",
     "immer": "^7.0.7",
     "lodash": "^4.17.19",
-    "next": "9.5.1",
+    "moment": "^2.27.0",
+    "next": "9.5.2",
+    "nprogress": "^0.2.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   }
